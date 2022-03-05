@@ -1,0 +1,115 @@
+
+#imageArea{
+
+     width: 100%;
+     height:1000;
+  
+     background-color: crimson;
+     margin-left: 0%;
+     padding-top: 8%;
+     padding-bottom: 8%;
+}
+
+.table_head{
+   
+    border: 1px solid black;
+    background-color:#AEFEFF;
+}
+.top_navbar{
+    background-color:black;
+}
+.logo-image{
+    width: 60px;
+    height: 60px;
+}
+.nav-title{
+    color: white;
+}
+.nav-item{
+    color:white;
+}
+#heading{
+    font-weight: 200;
+    font-family: 'Merriweather', serif;
+    color: White;
+}
+
+.start_page{
+  background-color: #141E27;
+  height: 400px;
+  text-align:center;
+}
+
+.starthead{
+    color:rgb(255, 255, 0);
+    text-align: center;
+    font-size: 3.5rem;
+    padding-top: 10%;
+    padding-bottom: 10%;
+    margin-bottom: 0%;
+    font-family: 'Merriweather', serif;
+    background-color:#141E27 ;
+}
+
+#cityInput{
+  width: 300px;
+}
+.cnt{
+    margin: 0% 5% 0% 5%;
+}
+.ranges{
+   font-family: 'Merriweather', serif;
+    background-color:black;  
+     color:  white;  
+     padding: 10% 5% 10% 5%;
+}
+.coursel-image{
+    width: 500px;
+    height: 250px;
+}
+.image{
+    
+    margin:2% 5% 2% 25%;
+}
+.carousel-item{
+    background-color:#8E806A;
+}
+
+.info{
+    padding: 25px 0px 25px 50px;
+    background-color:#141E27;
+}
+
+
+.last-footer{
+    background: black;
+    height: 250px;
+    color:white;
+    padding:20px 0px 20px 0px;
+}
+.copyright{
+    background-color: black; 
+    color: white;
+    text-align: center;
+}
+
+.query{
+     padding: 5% 0% 30% 0%;
+     background-color: #EEEDDE;
+}
+
+.insideQuery{
+    padding-left: 10% ;
+}
+
+.imgs{
+    text-align: center;
+}
+.column-first{
+    padding-left: 25px;
+}
+.input-box{
+    border-radius: 3px;
+    margin-bottom: 3px;
+    width: 50%;
+}

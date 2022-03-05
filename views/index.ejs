@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- bootstrap css CDN-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- google font for heading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
+   <!-- foontawesome-->
+   <script src="https://kit.fontawesome.com/0d990147e0.js" crossorigin="anonymous"></script>
+
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+    <title>Weather portal</title>
+<!-- 
+    <link rel="icon" type="image/x-icon" href="/images/fevicon.png"> -->
+   
+</head>
+<body>
+
+ 
+ <nav class="navbar navbar-expand-sm top_navbar ">
+  <div class="container">
+   
+      <ul class="navbar-nav">
+          <li class="nav-item active">
+        <img class="logo-image"  src="/images/logo.png">
+          </li>      
+          <li class="nav-item" style="padding-top: 30px;">
+              WHEATHER UPDATE
+          </li>
+          
+      
+      </ul>
+          <ul class="navbar-nav">
+              <li class="nav-item active">
+                  HOME
+              </li>
+           
+              <li class="nav-item">
+               <form action="/" method="post">
+                  <div class="container">
+                        <input id="cityInput" type="text" name="cityname" placeholder="check weather by city">
+                        <button type="submit" name="whichPost" value="query" name="submit">Go..</button>
+                    
+                   </div>
+                </form>
+           </li>
+      
+          </ul>
+     
+      
+  </div>
+</nav>
+
+
+    
+    <%    if(weatherList.length!=0){           %>  
+
+      <div class="info">
+  <h1 id="heading" class="container">wheather update</h1>
+    <div class=" cnt">
+        <div class="row">
+          <div class="col-2 table_head">
+            STATE
+          </div>
+          <div class="col-3 table_head">
+             WEATHER
+          </div>
+          <div class="col-2 table_head">
+             TEMPERATURE(C)
+         </div>
+         <div class="col-2 table_head" >
+            PRESSURE(pascal)
+         </div>
+         <div class="col-2 table_head">
+            HUMIDITY(g.m-3)
+         </div>
+        </div>
+      </div>
+   <%  var list=[]; %>
+   <%  var temp=101; %>
+
+   <%  weatherList.forEach(function(data){       %>
+       <%  list.push(data)    %>     
+      <div class="cnt">
+         <div class="row">
+             <div class="col-2 table_head">
+                 <%=data.capital %>,<%=data.state%>
+               </div>
+               <div class="col-3 table_head">
+                 <img src="<%=data.icon %>">
+                  <%=data.weather%>
+               </div>
+               <div class="col-2 table_head">
+                  <%=data.temp%>
+              </div>
+              <div class="col-2 table_head">
+               <%=data.pressure%>
+              </div>
+              <div class="col-2 table_head">
+               <%=data.humidity%>
+              </div>
+         </div>
+       </div>
+      
+    <%    })         %>
+   </div>
+  
+     
+
+  <section class="ranges">
+    <div>
+        <h1> Ranges of Weather parameter values of States</h1>
+    </div>
+  <div>
+   <p>Hottest state: <%= hottest.s %> with Temperature <%=hottest.max %> degree celcius</p>
+   <p>Coldest state: <%= coldest.s %> with Temperature <%=coldest.min %> degree celcius</p>
+   <p>highly moist State: <%= moist.s %> with humidity <%=moist.max %> g.m-3</p>
+   <p>Most Dry State: <%= dry.s %> with humidity <%=dry.min %> g.m-3</p>
+   <p>Highest pressured  State: <%= hightPressure.s%> with pressure <%=hightPressure.max %> pascal<p>
+   <p>lowest pressured  State: <%= lowPressure.s%> with pressure <%=lowPressure.min %> pascal<p>
+  </div>
+</section>
+
+<%  }else{       %>
+     <div class="start_page">
+      <h1 class="starthead" > Welcome to my weather Update App</h1>
+      <button class="btn-lg btn-success start_button" onClick="document.location.reload()">check the State Weather</button> 
+     </div>
+ 
+<%  }    %>
+
+    
+
+<section id="imageArea">
+
+  <div class=" cnt">
+    <div class="row">
+      <div class="col-4 imgs">
+        <img src="https://picsum.photos/id/1028/350/350">
+      </div>
+      <div class="col-4 imgs">
+        <img src="https://picsum.photos/id/1036/350/350">
+      </div>
+      <div class="col-4 imgs">
+        <img src="https://picsum.photos/id/1039/350/350">
+      </div>
+    </div>
+  </div>
+   
+
+
+</section>
+
+
+
+    <footer>
+      <section class="footer" >
+
+          <div class= "last-footer">
+                <div class="row">
+                  <div class=" col-lg-4 column-first" >
+                      <p class="main-heading"> WEATHER UPDATE PVT .LTD</p>
+                      <a class="nav-link" href="#"><span  class="nav-tittle"><i class="fas fa-map-marker-alt footer-icon" ></i> Delhi,India</span></a>  
+                      <a class="nav-link" href="#"><span  class="nav-tittle"><i class="fas fa-envelope footer-icon"></i> info@educationpro.com</span></a>  
+                      <a class="nav-link" href="#"><span  class="nav-tittle"><i class="fas fa-phone footer-icon"></i> +977 9813639131</span></a>
+                   
+                  </div>
+                  <div class=" col-lg-3 column">
+                      <p class="main-heading">FOLLOW US</p>
+                      <a class="nav-link" href="#"><span class="nav-tittle"><i class="fab fa-facebook-square footer-icon"></i>  facebook</span></a>
+                      <a class="nav-link" href="#"><span class="nav-tittle"><i class="fab fa-instagram footer-icon"></i>  Instagram</span></a>
+                      <a class="nav-link" href="#"><span class="nav-tittle"><i class="fab fa-youtube footer-icon"></i>  Youtube</span></a>
+                  </div>
+                  <div class=" col-lg-5 column ">
+                      <p class="main-heading">CONNECT WITH US</p>
+
+                    <form action="/" method="post">
+                    <input type="text" name="fname" placeholder="first name" class="input-box">
+                    <br>
+                    <input type="text" name="lname" placeholder="second name" class="input-box">
+                    <br>
+                    <input type="email" name="email" placeholder="email address*" class="input-box">
+                    <br>
+                   <button type="submit" name="whichPost" value="subscribe" class="buttons">Subscribe</button>
+                  </form>
+                  </div>
+              </div>
+          </div>
+      </section >
+      <div class="copyright">
+          <p style="color: white;"><i class="fas fa-copyright"></i> copyright 2019 All Rights Reserved on wether Update to Open weather Map</p>
+      </div>
+  </footer>
+  
+  <script >    
+    // var weatherInfo = list;
+   //  var dps = list;
+ /*     var dps =[{label:"china",y:20},{label:"india",y:20}];
+  window.onload = function () {
+  var chart = new CanvasJS.Chart("chartContainer",
+  {
+   title:{
+     text: "Olympic Medals of all Times (till 2012 Olympics)"
+   },
+  
+   data: [
+   {
+     type: "bar",
+     dataPoints: dps,
+   }
+   ]
+  });
+  chart.render();
+  } */
+  </script> 
+   <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+
+      <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+
+
