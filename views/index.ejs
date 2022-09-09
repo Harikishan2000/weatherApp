@@ -33,7 +33,7 @@
         <img class="logo-image"  src="/images/logo.png">
           </li>      
           <li class="nav-item" style="padding-top: 30px;">
-              WHEATHER UPDATE
+              WEATHER UPDATE
           </li>
           
       
@@ -64,15 +64,18 @@
     <%    if(weatherList.length!=0){           %>  
 
       <div class="info">
-  <h1 id="heading" class="container">wheather update</h1>
+  <h1 id="heading" class="container">Weather update</h1>
     <div class=" cnt">
         <div class="row">
           <div class="col-2 table_head">
             STATE
           </div>
-          <div class="col-3 table_head">
+          <div class="col-2 table_head">
              WEATHER
           </div>
+          <div class="col-2 table_head">
+            DESCRIPTION
+         </div>
           <div class="col-2 table_head">
              TEMPERATURE(C)
          </div>
@@ -94,10 +97,12 @@
              <div class="col-2 table_head">
                  <%=data.capital %>,<%=data.state%>
                </div>
-               <div class="col-3 table_head">
+               <div class="col-2 table_head">
                  <img src="<%=data.icon %>">
-                  <%=data.weather%>
                </div>
+               <div class="col-2 table_head">
+                 <%=data.weather%>
+              </div>
                <div class="col-2 table_head">
                   <%=data.temp%>
               </div>
